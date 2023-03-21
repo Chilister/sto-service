@@ -9,6 +9,8 @@ use App\Orchid\Screens\Examples\ExampleFieldsScreen;
 use App\Orchid\Screens\Examples\ExampleLayoutsScreen;
 use App\Orchid\Screens\Examples\ExampleScreen;
 use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
+use App\Orchid\Screens\Fixes\Category\FixCategoryEditScreen;
+use App\Orchid\Screens\Fixes\Category\FixCategoryListScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
@@ -97,3 +99,9 @@ Route::screen('example-cards', ExampleCardsScreen::class)->name('platform.exampl
 Route::screen('example-advanced', ExampleFieldsAdvancedScreen::class)->name('platform.example.advanced');
 
 //Route::screen('idea', Idea::class, 'platform.screens.idea');
+
+Route::screen('fix-category/{category?}', FixCategoryEditScreen::class)
+    ->name('platform.fix_category.edit');
+
+Route::screen('fix-categories', FixCategoryListScreen::class)
+    ->name('platform.fix_category.list');
