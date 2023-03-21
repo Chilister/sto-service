@@ -53,6 +53,15 @@ class PlatformProvider extends OrchidServiceProvider
                     Menu::make('Моделі')
                         ->icon('bag')
                         ->route('platform.model.list'),
+                    Menu::make('Типи приводу')
+                        ->icon('bag')
+                        ->route('platform.drive_type.list'),
+                    Menu::make('Типи палива')
+                        ->icon('bag')
+                        ->route('platform.fuel_type.list'),
+                    Menu::make('Типи коробки передач')
+                        ->icon('bag')
+                        ->route('platform.gearbox_type.list'),
                 ]),
 
             Menu::make('Системні налаштування')

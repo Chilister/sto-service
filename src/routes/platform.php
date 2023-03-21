@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 use App\Orchid\Screens\Cars\Brand\BrandEditScreen;
 use App\Orchid\Screens\Cars\Brand\BrandListScreen;
+use App\Orchid\Screens\Cars\DriveType\DriveTypeEditScreen;
+use App\Orchid\Screens\Cars\DriveType\DriveTypeListScreen;
+use App\Orchid\Screens\Cars\FuelType\FuelTypeEditScreen;
+use App\Orchid\Screens\Cars\FuelType\FuelTypeListScreen;
+use App\Orchid\Screens\Cars\GearboxType\GearboxTypeEditScreen;
+use App\Orchid\Screens\Cars\GearboxType\GearboxTypeListScreen;
 use App\Orchid\Screens\Cars\Model\ModelEditScreen;
 use App\Orchid\Screens\Cars\Model\ModelListScreen;
 use App\Orchid\Screens\Examples\ExampleCardsScreen;
@@ -129,3 +135,21 @@ Route::screen('model/{model?}', ModelEditScreen::class)
 
 Route::screen('models', ModelListScreen::class)
     ->name('platform.model.list');
+
+Route::screen('drive-type/{driveType?}', DriveTypeEditScreen::class)
+    ->name('platform.drive_type.edit');
+
+Route::screen('drive-types', DriveTypeListScreen::class)
+    ->name('platform.drive_type.list');
+
+Route::screen('fuel-type/{fuelType?}', FuelTypeEditScreen::class)
+    ->name('platform.fuel_type.edit');
+
+Route::screen('fuel-types', FuelTypeListScreen::class)
+    ->name('platform.fuel_type.list');
+
+Route::screen('gearbox-type/{gearboxType?}', GearboxTypeEditScreen::class)
+    ->name('platform.gearbox_type.edit');
+
+Route::screen('gearbox-types', GearboxTypeListScreen::class)
+    ->name('platform.gearbox_type.list');
