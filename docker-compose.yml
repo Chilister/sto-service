@@ -1,0 +1,99 @@
+version: '3.7'
+
+networks:
+    sto_network:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 172.11.0.0/24
+
+services:
+    site:
+        build:
+            context: ./dockerfiles
+            dockerfile: nginx.root.dockerfile
+        container_name: sto_nginx
+        ports:
+            - 80:80
+        volumes:
+            - ./src:/var/www/html:delegated
+        depends_on:
+            - php
+            - mysql
+        networks:
+            sto_network:
+                ipv4_address: 172.11.0.2
+
+    mysql:
+        image: mysql:latest
+        container_name: sto_mysql
+        restart: unless-stopped
+        tty: true
+        ports:
+            - 3308:3306
+        environment:
+            MYSQL_DATABASE: stoservice
+            MYSQL_USER: stoservice
+            MYSQL_PASSWORD: secret
+            MYSQL_ROOT_PASSWORD: root
+            SERVICE_TAGS: dev
+            SERVICE_NAME: mysql
+        volumes:
+            - './mysql-data:/var/lib/mysql'
+        networks:
+            sto_network:
+                ipv4_address: 172.11.0.3
+
+    php:
+        build:
+            context: ./dockerfiles
+            dockerfile: php.root.dockerfile
+        container_name: sto_php
+        volumes:
+            - ./src:/var/www/html:delegated
+        networks:
+            sto_network:
+                ipv4_address: 172.11.0.4
+
+    composer:
+        image: composer:latest
+        container_name: sto_composer
+        volumes:
+            - ./src:/var/www/html
+        working_dir: /var/www/html
+        depends_on:
+            - php
+        user: root
+        entrypoint: ['composer', '--ignore-platform-reqs']
+        networks:
+            sto_network:
+                ipv4_address: 172.11.0.6
+
+    npm:
+        image: node:latest
+        container_name: sto_npm
+        volumes:
+            - ./src:/var/www/html
+        ports:
+            - 3000:3000
+            - 3001:3001
+        working_dir: /var/www/html
+        entrypoint: ['npm']
+        networks:
+            sto_network:
+                ipv4_address: 172.11.0.7
+
+    artisan:
+        build:
+            context: ./dockerfiles
+            dockerfile: php.root.dockerfile
+        container_name: sto_artisan
+        volumes:
+            - ./src:/var/www/html:delegated
+        depends_on:
+            - mysql
+        working_dir: /var/www/html
+        entrypoint: ['php', '/var/www/html/artisan']
+        networks:
+            sto_network:
+                ipv4_address: 172.11.0.8
