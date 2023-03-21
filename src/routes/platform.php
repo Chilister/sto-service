@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Orchid\Screens\Cars\Brand\BrandEditScreen;
+use App\Orchid\Screens\Cars\Brand\BrandListScreen;
 use App\Orchid\Screens\Examples\ExampleCardsScreen;
 use App\Orchid\Screens\Examples\ExampleChartsScreen;
 use App\Orchid\Screens\Examples\ExampleFieldsAdvancedScreen;
@@ -113,3 +115,9 @@ Route::screen('fix-price/{price?}', FixPriceEditScreen::class)
 
 Route::screen('fix-prices', FixPriceListScreen::class)
     ->name('platform.fix_price.list');
+
+Route::screen('brand/{brand?}', BrandEditScreen::class)
+    ->name('platform.brand.edit');
+
+Route::screen('brands', BrandListScreen::class)
+    ->name('platform.brand.list');

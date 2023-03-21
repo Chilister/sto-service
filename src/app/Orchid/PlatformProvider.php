@@ -44,6 +44,13 @@ class PlatformProvider extends OrchidServiceProvider
                         ->icon('bag')
                         ->route('platform.fix_price.list'),
                 ]),
+            Menu::make('Авто')
+                ->icon('code')
+                ->list([
+                    Menu::make('Бренди')
+                        ->icon('bag')
+                        ->route('platform.brand.list'),
+                ]),
 
             Menu::make('Системні налаштування')
                 ->title('Користувачі')
