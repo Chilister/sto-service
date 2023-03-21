@@ -50,6 +50,9 @@ class PlatformProvider extends OrchidServiceProvider
                     Menu::make('Бренди')
                         ->icon('bag')
                         ->route('platform.brand.list'),
+                    Menu::make('Моделі')
+                        ->icon('bag')
+                        ->route('platform.model.list'),
                 ]),
 
             Menu::make('Системні налаштування')
