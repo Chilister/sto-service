@@ -19,4 +19,14 @@ class Category extends Model
         'title',
         'description'
     ];
+
+    public function parent()
+    {
+        return $this->belongsTo(self::class, 'parent_id');
+    }
+
+    public function categories()
+    {
+        return $this->hasMany(self::class, 'parent_id');
+    }
 }

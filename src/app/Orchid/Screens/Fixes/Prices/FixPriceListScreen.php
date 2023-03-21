@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Orchid\Screens\Fixes\Category;
+namespace App\Orchid\Screens\Fixes\Prices;
 
-use App\Models\Fixes\Category;
-use App\Orchid\Layouts\Fixes\Category\FixCategoryListLayout;
+use App\Models\Fixes\Price;
+use App\Orchid\Layouts\Fixes\Price\FixPriceListLayout;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 
-class FixCategoryListScreen extends Screen
+class FixPriceListScreen extends Screen
 {
     /**
      * Fetch data to be displayed on the screen.
@@ -17,7 +17,7 @@ class FixCategoryListScreen extends Screen
     public function query(): iterable
     {
         return [
-            'categories' => Category::paginate()
+            'prices' => Price::paginate()
         ];
     }
 
@@ -28,7 +28,7 @@ class FixCategoryListScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Категорії ремонту';
+        return 'Ціни ремонту';
     }
 
     /**
@@ -41,7 +41,7 @@ class FixCategoryListScreen extends Screen
         return [
             Link::make('Створити')
                 ->icon('pencil')
-                ->route('platform.fix_category.edit')
+                ->route('platform.fix_price.edit')
         ];
     }
 
@@ -53,7 +53,7 @@ class FixCategoryListScreen extends Screen
     public function layout(): iterable
     {
         return [
-            FixCategoryListLayout::class
+            FixPriceListLayout::class
         ];
     }
 }

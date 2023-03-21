@@ -40,6 +40,9 @@ class PlatformProvider extends OrchidServiceProvider
                     Menu::make('Категорії ремонту')
                         ->icon('bag')
                         ->route('platform.fix_category.list'),
+                    Menu::make('Ціни ремонту')
+                        ->icon('bag')
+                        ->route('platform.fix_price.list'),
                 ]),
 
             Menu::make('Системні налаштування')

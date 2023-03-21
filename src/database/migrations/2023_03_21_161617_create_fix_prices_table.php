@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('description')->nullable();
             $table->integer('price')->default(0);
+            $table->timestamps();
         });
     }
 

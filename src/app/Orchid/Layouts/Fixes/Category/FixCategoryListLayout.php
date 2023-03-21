@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Orchid\Layouts;
+namespace App\Orchid\Layouts\Fixes\Category;
 
 use App\Models\Fixes\Category;
 use Orchid\Screen\Actions\Link;
@@ -31,6 +31,10 @@ class FixCategoryListLayout extends Table
                 ->render(function (Category $category) {
                     return Link::make($category->title)
                         ->route('platform.fix_category.edit', $category);
+                }),
+            TD::make('parent_category', 'Батьківська категорія')
+                ->render(function (Category $category) {
+                    return $category->parent?->title;
                 }),
 
             TD::make('description', 'Опис'),

@@ -11,6 +11,8 @@ use App\Orchid\Screens\Examples\ExampleScreen;
 use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
 use App\Orchid\Screens\Fixes\Category\FixCategoryEditScreen;
 use App\Orchid\Screens\Fixes\Category\FixCategoryListScreen;
+use App\Orchid\Screens\Fixes\Prices\FixPriceEditScreen;
+use App\Orchid\Screens\Fixes\Prices\FixPriceListScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
@@ -105,3 +107,9 @@ Route::screen('fix-category/{category?}', FixCategoryEditScreen::class)
 
 Route::screen('fix-categories', FixCategoryListScreen::class)
     ->name('platform.fix_category.list');
+
+Route::screen('fix-price/{price?}', FixPriceEditScreen::class)
+    ->name('platform.fix_price.edit');
+
+Route::screen('fix-prices', FixPriceListScreen::class)
+    ->name('platform.fix_price.list');
