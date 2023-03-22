@@ -12,6 +12,8 @@ use App\Orchid\Screens\Cars\GearboxType\GearboxTypeEditScreen;
 use App\Orchid\Screens\Cars\GearboxType\GearboxTypeListScreen;
 use App\Orchid\Screens\Cars\Model\ModelEditScreen;
 use App\Orchid\Screens\Cars\Model\ModelListScreen;
+use App\Orchid\Screens\Customers\Customer\CustomerEditScreen;
+use App\Orchid\Screens\Customers\Customer\CustomerListScreen;
 use App\Orchid\Screens\Examples\ExampleCardsScreen;
 use App\Orchid\Screens\Examples\ExampleChartsScreen;
 use App\Orchid\Screens\Examples\ExampleFieldsAdvancedScreen;
@@ -153,3 +155,9 @@ Route::screen('gearbox-type/{gearboxType?}', GearboxTypeEditScreen::class)
 
 Route::screen('gearbox-types', GearboxTypeListScreen::class)
     ->name('platform.gearbox_type.list');
+
+Route::screen('customer/{customer?}', CustomerEditScreen::class)
+    ->name('platform.customer.edit');
+
+Route::screen('customers', CustomerListScreen::class)
+    ->name('platform.customer.list');

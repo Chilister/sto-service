@@ -32,7 +32,7 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('monitor')
                 ->route('platform.example')
                 ->title('Navigation')
-                ->badge(fn () => 6),
+                ->badge(fn() => 6),
 
             Menu::make('Ремонт')
                 ->icon('code')
@@ -62,6 +62,13 @@ class PlatformProvider extends OrchidServiceProvider
                     Menu::make('Типи коробки передач')
                         ->icon('bag')
                         ->route('platform.gearbox_type.list'),
+                ]),
+            Menu::make('Персональні дані')
+                ->icon('code')
+                ->list([
+                    Menu::make('Клієнти')
+                        ->icon('bag')
+                        ->route('platform.customer.list'),
                 ]),
 
             Menu::make('Системні налаштування')
