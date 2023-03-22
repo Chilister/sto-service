@@ -30,6 +30,7 @@ use App\Orchid\Screens\Fixes\Fix\FixListScreen;
 use App\Orchid\Screens\Fixes\Prices\FixPriceEditScreen;
 use App\Orchid\Screens\Fixes\Prices\FixPriceListScreen;
 use App\Orchid\Screens\PlatformScreen;
+use App\Orchid\Screens\Preview\Fixes\CustomerFixListScreen;
 use App\Orchid\Screens\Preview\Fixes\FixScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
@@ -163,6 +164,9 @@ Route::screen('gearbox-types', GearboxTypeListScreen::class)
 
 Route::screen('customer/{customer?}', CustomerEditScreen::class)
     ->name('platform.customer.edit');
+
+Route::screen('customer/{customer}/fixes', CustomerFixListScreen::class)
+    ->name('platform.customer.fix.preview');
 
 Route::screen('customers', CustomerListScreen::class)
     ->name('platform.customer.list');

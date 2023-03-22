@@ -3,6 +3,7 @@
 namespace App\Orchid\Layouts\Customers\Customer;
 
 use App\Models\Customers\Customer;
+use App\Models\Fixes\Fix;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\TD;
@@ -35,6 +36,11 @@ class CustomerListLayout extends Table
 
             TD::make('last_name', 'Прізвище'),
             TD::make('phone_number', 'Телефон'),
+            TD::make()
+                ->align(TD::ALIGN_RIGHT)
+                ->render(function (Customer $customer) {
+                    return Link::make()->icon('wrench')->route('platform.customer.fix.preview', $customer);
+                }),
         ];
     }
 }

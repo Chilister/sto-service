@@ -3,6 +3,7 @@
 namespace App\Models\Customers;
 
 use App\Models\Fixes\Category;
+use App\Models\Fixes\Fix;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Screen\AsSource;
@@ -27,5 +28,10 @@ class Customer extends Model
     public function getFullNameAttribute()
     {
         return $this->attributes['first_name'] . ' ' . $this->attributes['last_name'];
+    }
+
+    public function fixes()
+    {
+        return $this->hasMany(Fix::class, 'customer_id');
     }
 }
