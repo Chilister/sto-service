@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Models\Calendar;
+
+use App\Models\Customers\Car;
+use App\Models\Customers\Customer;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Screen\AsSource;
+
+class Appointment extends Model
+{
+
+    use AsSource;
+
+    protected $table = 'appointments';
+
+    protected $fillable = [
+        'phone_number',
+        'car_id',
+        'reserve_begin',
+        'reserve_end',
+        'description',
+    ];
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'phone_number', 'phone_number');
+    }
+    public function car()
+    {
+        return $this->belongsTo(Car::class, 'car_id');
+    }
+}
