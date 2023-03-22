@@ -79,8 +79,8 @@ class CustomerEditScreen extends Screen
                     ->title('Прізвище')
                     ->placeholder('Прізвище'),
                 Input::make('customer.phone_number')
-                    ->mask('(999) 99-99-999')
                     ->title('Телефон')
+                    ->placeholder('Телефон')
 
             ])
         ];

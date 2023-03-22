@@ -69,6 +69,9 @@ class PlatformProvider extends OrchidServiceProvider
                     Menu::make('Клієнти')
                         ->icon('bag')
                         ->route('platform.customer.list'),
+                    Menu::make('Авто')
+                        ->icon('bag')
+                        ->route('platform.car.list'),
                 ]),
 
             Menu::make('Системні налаштування')

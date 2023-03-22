@@ -19,4 +19,13 @@ class Customer extends Model
         'last_name',
         'phone_number'
     ];
+
+    public function getSelectTitleAttribute()
+    {
+        return $this->attributes['first_name'] . ' ' . $this->attributes['last_name']. ' ' . $this->attributes['phone_number'];
+    }
+    public function getFullNameAttribute()
+    {
+        return $this->attributes['first_name'] . ' ' . $this->attributes['last_name'];
+    }
 }
