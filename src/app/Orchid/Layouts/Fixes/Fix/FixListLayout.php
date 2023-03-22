@@ -38,6 +38,11 @@ class FixListLayout extends Table
                 }),
 
             TD::make('total', 'Сума'),
+            TD::make()
+                ->align(TD::ALIGN_RIGHT)
+                ->render(function (Fix $fix) {
+                    return Link::make()->icon('eye')->route('platform.fix.preview', $fix);
+                }),
         ];
     }
 }

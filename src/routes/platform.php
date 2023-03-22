@@ -30,6 +30,7 @@ use App\Orchid\Screens\Fixes\Fix\FixListScreen;
 use App\Orchid\Screens\Fixes\Prices\FixPriceEditScreen;
 use App\Orchid\Screens\Fixes\Prices\FixPriceListScreen;
 use App\Orchid\Screens\PlatformScreen;
+use App\Orchid\Screens\Preview\Fixes\FixScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
@@ -171,6 +172,9 @@ Route::screen('car/{car?}', CarEditScreen::class)
 
 Route::screen('cars', CarListScreen::class)
     ->name('platform.car.list');
+
+Route::screen('preview/fix/{fix}', FixScreen::class)
+    ->name('platform.fix.preview');
 
 Route::screen('fix/{fix?}', FixEditScreen::class)
     ->name('platform.fix.edit');
