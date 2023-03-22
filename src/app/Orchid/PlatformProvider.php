@@ -30,51 +30,58 @@ class PlatformProvider extends OrchidServiceProvider
         return [
             Menu::make('Персональні дані')
                 ->title('Робота')
-                ->icon('code')
+                ->icon('task')
                 ->list([
                     Menu::make('Клієнти')
-                        ->icon('bag')
+                        ->icon('user')
                         ->route('platform.customer.list'),
                     Menu::make('Авто')
-                        ->icon('bag')
+                        ->icon('rocket')
                         ->route('platform.car.list'),
                     Menu::make('Ремонти')
-                        ->icon('bag')
+                        ->icon('wrench')
                         ->route('platform.fix.list'),
+                ]),
+            Menu::make('Замовлення')
+                ->icon('task')
+                ->list([
+                    Menu::make('Записи')
+                        ->icon('user')
+                        ->route('platform.appointment.list'),
                 ]),
 
             Menu::make('Ціни')
                 ->title('Налаштування')
-                ->icon('code')
+                ->icon('money')
                 ->list([
                     Menu::make('Категорії ремонту')
-                        ->icon('bag')
+                        ->icon('options-vertical')
                         ->route('platform.fix_category.list'),
                     Menu::make('Ціни ремонту')
-                        ->icon('bag')
+                        ->icon('money')
                         ->route('platform.fix_price.list'),
                 ]),
             Menu::make('Авто')
-                ->icon('code')
+                ->icon('settings')
                 ->list([
                     Menu::make('Бренди')
-                        ->icon('bag')
+                        ->icon('task')
                         ->route('platform.brand.list'),
                     Menu::make('Моделі')
-                        ->icon('bag')
+                        ->icon('task')
                         ->route('platform.model.list'),
                     Menu::make('Типи приводу')
-                        ->icon('bag')
+                        ->icon('task')
                         ->route('platform.drive_type.list'),
                     Menu::make('Типи палива')
-                        ->icon('bag')
+                        ->icon('task')
                         ->route('platform.fuel_type.list'),
                     Menu::make('Типи коробки передач')
-                        ->icon('bag')
+                        ->icon('task')
                         ->route('platform.gearbox_type.list'),
                 ]),
             Menu::make('Користувачі')
-                ->icon('code')
+                ->icon('user')
                 ->list([
                     Menu::make(__('Users'))
                         ->icon('user')

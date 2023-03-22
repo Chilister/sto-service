@@ -2,7 +2,7 @@
 
 namespace App\Orchid\Layouts\Calendar\Appointment;
 
-use App\Models\Cars\Brand;
+use App\Models\Calendar\Appointment;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\TD;
@@ -27,12 +27,19 @@ class AppointmentListLayout extends Table
     protected function columns(): iterable
     {
         return [
-            TD::make('title', 'Назва')
-                ->render(function (Brand $brand) {
-                    return Link::make($brand->title)
-                        ->route('platform.brand.edit', $brand);
+            TD::make('customer', 'Клієнт')
+                ->render(function (Appointment $appointment) {
+                    return Link::make($appointment->customer?->full_name ?? $appointment->phone_number)
+                        ->route('platform.appointment.edit', $appointment);
                 }),
-            TD::make('priority', 'Приоритет'),
+            TD::make('reserve_begin', 'Час початку')
+                ->render(function (Appointment $appointment) {
+                    return $appointment->reserve_begin->toDateTimeString();
+                }),
+            TD::make('reserve_end', 'Час Закінчення')
+                ->render(function (Appointment $appointment) {
+                    return $appointment->reserve_end->toDateTimeString();
+                }),
         ];
     }
 }

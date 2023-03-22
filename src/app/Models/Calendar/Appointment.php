@@ -23,6 +23,11 @@ class Appointment extends Model
         'description',
     ];
 
+    protected $dates = [
+        'reserve_begin',
+        'reserve_end'
+    ];
+
     public function customer()
     {
         return $this->belongsTo(Customer::class, 'phone_number', 'phone_number');

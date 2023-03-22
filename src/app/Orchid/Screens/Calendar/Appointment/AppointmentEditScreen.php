@@ -83,14 +83,15 @@ class AppointmentEditScreen extends Screen
                 Relation::make('appointment.car_id')
                     ->title('Автомобіль')
                     ->fromModel(Car::class, 'id')
-                    ->displayAppend('select_title')
-                    ->required(),
+                    ->displayAppend('select_title'),
                 DateTimer::make('appointment.reserve_begin')
                     ->title('Дата початку')
+                    ->enableTime()
                     ->format24hr(),
                 DateTimer::make('appointment.reserve_end')
                     ->title('Дата закінчення')
-                    ->format24hr(),
+                    ->format24hr()
+                    ->enableTime(),
                 TextArea::make('appointment.description')
                     ->title('Опис')
                     ->rows(3)

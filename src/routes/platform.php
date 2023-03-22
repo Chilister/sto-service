@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Orchid\Screens\Calendar\Appointment\AppointmentEditScreen;
+use App\Orchid\Screens\Calendar\Appointment\AppointmentListScreen;
 use App\Orchid\Screens\Cars\Brand\BrandEditScreen;
 use App\Orchid\Screens\Cars\Brand\BrandListScreen;
 use App\Orchid\Screens\Cars\DriveType\DriveTypeEditScreen;
@@ -185,3 +187,9 @@ Route::screen('fix/{fix?}', FixEditScreen::class)
 
 Route::screen('fixes', FixListScreen::class)
     ->name('platform.fix.list');
+
+Route::screen('appointment/{appointment?}', AppointmentEditScreen::class)
+    ->name('platform.appointment.edit');
+
+Route::screen('appointments', AppointmentListScreen::class)
+    ->name('platform.appointment.list');
