@@ -115,7 +115,7 @@ class AppointmentEditScreen extends Screen
 
         Alert::info('Запис успішно збережений');
 
-        return redirect()->route('platform.appointment.list');
+        return redirect()->route('platform.calendar.preview');
     }
 
     /**
@@ -129,6 +129,6 @@ class AppointmentEditScreen extends Screen
 
         Alert::info('Запис успішно видалений');
 
-        return redirect()->route('platform.appointment.list');
+        return redirect()->route('platform.calendar.preview');
     }
 }

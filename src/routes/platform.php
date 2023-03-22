@@ -32,6 +32,7 @@ use App\Orchid\Screens\Fixes\Fix\FixListScreen;
 use App\Orchid\Screens\Fixes\Prices\FixPriceEditScreen;
 use App\Orchid\Screens\Fixes\Prices\FixPriceListScreen;
 use App\Orchid\Screens\PlatformScreen;
+use App\Orchid\Screens\Preview\Calendar\CalendarScreen;
 use App\Orchid\Screens\Preview\Fixes\CustomerFixListScreen;
 use App\Orchid\Screens\Preview\Fixes\FixScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
@@ -193,3 +194,6 @@ Route::screen('appointment/{appointment?}', AppointmentEditScreen::class)
 
 Route::screen('appointments', AppointmentListScreen::class)
     ->name('platform.appointment.list');
+
+Route::screen('calendar', CalendarScreen::class)
+    ->name('platform.calendar.preview');

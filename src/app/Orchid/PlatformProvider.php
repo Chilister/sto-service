@@ -48,6 +48,9 @@ class PlatformProvider extends OrchidServiceProvider
                     Menu::make('Записи')
                         ->icon('user')
                         ->route('platform.appointment.list'),
+                    Menu::make('Календар')
+                        ->icon('user')
+                        ->route('platform.calendar.preview'),
                 ]),
 
             Menu::make('Ціни')

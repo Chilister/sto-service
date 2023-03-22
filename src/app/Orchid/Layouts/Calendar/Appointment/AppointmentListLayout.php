@@ -29,9 +29,10 @@ class AppointmentListLayout extends Table
         return [
             TD::make('customer', 'Клієнт')
                 ->render(function (Appointment $appointment) {
-                    return Link::make($appointment->customer?->full_name ?? $appointment->phone_number)
+                    return Link::make($appointment->customer?->select_title ?? $appointment->phone_number)
                         ->route('platform.appointment.edit', $appointment);
                 }),
+            TD::make('description', 'Опис'),
             TD::make('reserve_begin', 'Час початку')
                 ->render(function (Appointment $appointment) {
                     return $appointment->reserve_begin->toDateTimeString();

@@ -17,7 +17,7 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Customer::class,'phone_number');
+            $table->string('phone_number');
             $table->foreignIdFor(Car::class,'car_id')->nullable();
             $table->datetime('reserve_begin');
             $table->datetime('reserve_end');
