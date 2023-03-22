@@ -25,4 +25,9 @@ class Price extends Model
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
+
+    public function getSelectTitleAttribute()
+    {
+        return $this->attributes['title'] . ' ' . $this->attributes['price'];
+    }
 }

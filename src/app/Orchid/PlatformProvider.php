@@ -28,13 +28,23 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerMainMenu(): array
     {
         return [
-            Menu::make('Example screen')
-                ->icon('monitor')
-                ->route('platform.example')
-                ->title('Navigation')
-                ->badge(fn() => 6),
+            Menu::make('Персональні дані')
+                ->title('Робота')
+                ->icon('code')
+                ->list([
+                    Menu::make('Клієнти')
+                        ->icon('bag')
+                        ->route('platform.customer.list'),
+                    Menu::make('Авто')
+                        ->icon('bag')
+                        ->route('platform.car.list'),
+                    Menu::make('Ремонти')
+                        ->icon('bag')
+                        ->route('platform.fix.list'),
+                ]),
 
-            Menu::make('Ремонт')
+            Menu::make('Ціни')
+                ->title('Налаштування')
                 ->icon('code')
                 ->list([
                     Menu::make('Категорії ремонту')
@@ -63,19 +73,7 @@ class PlatformProvider extends OrchidServiceProvider
                         ->icon('bag')
                         ->route('platform.gearbox_type.list'),
                 ]),
-            Menu::make('Персональні дані')
-                ->icon('code')
-                ->list([
-                    Menu::make('Клієнти')
-                        ->icon('bag')
-                        ->route('platform.customer.list'),
-                    Menu::make('Авто')
-                        ->icon('bag')
-                        ->route('platform.car.list'),
-                ]),
-
-            Menu::make('Системні налаштування')
-                ->title('Користувачі')
+            Menu::make('Користувачі')
                 ->icon('code')
                 ->list([
                     Menu::make(__('Users'))

@@ -1,6 +1,7 @@
 <?php
 
-use App\Models\Fixes\Category;
+use App\Models\Fixes\Fix;
+use App\Models\Fixes\Price;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,13 +15,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('fix_prices', function (Blueprint $table) {
+        Schema::create('fix_fix_price', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Category::class, 'category_id');
-            $table->string('slug')->unique();
-            $table->string('title');
-            $table->string('description')->nullable();
-            $table->integer('price')->default(0);
+            $table->foreignIdFor(Fix::class, 'fix_id');
+            $table->foreignIdFor(Price::class, 'fix_price_id');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fix_prices');
+        Schema::dropIfExists('fix_fix_price');
     }
 };

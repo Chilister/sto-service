@@ -25,6 +25,8 @@ use App\Orchid\Screens\Examples\ExampleScreen;
 use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
 use App\Orchid\Screens\Fixes\Category\FixCategoryEditScreen;
 use App\Orchid\Screens\Fixes\Category\FixCategoryListScreen;
+use App\Orchid\Screens\Fixes\Fix\FixEditScreen;
+use App\Orchid\Screens\Fixes\Fix\FixListScreen;
 use App\Orchid\Screens\Fixes\Prices\FixPriceEditScreen;
 use App\Orchid\Screens\Fixes\Prices\FixPriceListScreen;
 use App\Orchid\Screens\PlatformScreen;
@@ -169,3 +171,9 @@ Route::screen('car/{car?}', CarEditScreen::class)
 
 Route::screen('cars', CarListScreen::class)
     ->name('platform.car.list');
+
+Route::screen('fix/{fix?}', FixEditScreen::class)
+    ->name('platform.fix.edit');
+
+Route::screen('fixes', FixListScreen::class)
+    ->name('platform.fix.list');

@@ -31,6 +31,11 @@ class Car extends Model
         'vin_number'
     ];
 
+    public function getSelectTitleAttribute()
+    {
+        return $this->brand->title . ' ' . $this->model->title . ' ' . $this->year;
+    }
+
     public function setEngineCapacityAttribute($value)
     {
         $this->attributes['engine_capacity'] = $value * 100;

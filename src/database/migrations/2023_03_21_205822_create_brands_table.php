@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('slug')->unique();
             $table->string('title');
-            $table->unsignedInteger('priority');
+            $table->unsignedInteger('priority')->default(0);
             $table->timestamps();
         });
     }

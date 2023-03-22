@@ -76,16 +76,19 @@ class ModelEditScreen extends Screen
         return [
             Layout::rows([
                 Select::make('model.brand_id')
+                    ->required()
                     ->title('Бренд')
                     ->empty('Виберіть значення')
                     ->fromModel(Brand::class, 'title'),
                 Input::make('model.title')
+                    ->required()
                     ->title('Назва')
                     ->placeholder('Назва'),
                 Input::make('model.priority')
                     ->title('Приоритет')
                     ->type('number')
-                    ->placeholder('0'),
+                    ->placeholder('0')
+                ->required(),
             ])
         ];
     }

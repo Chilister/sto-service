@@ -75,11 +75,13 @@ class BrandEditScreen extends Screen
             Layout::rows([
                 Input::make('brand.title')
                     ->title('Назва')
-                    ->placeholder('Назва'),
+                    ->placeholder('Назва')
+                    ->required(),
                 Input::make('brand.priority')
                     ->title('Приоритет')
                     ->type('number')
-                    ->placeholder('0'),
+                    ->placeholder('0')
+                    ->required(),
             ])
         ];
     }

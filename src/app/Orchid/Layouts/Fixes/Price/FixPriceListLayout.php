@@ -37,7 +37,7 @@ class FixPriceListLayout extends Table
                 ->render(function (Price $price) {
                     return $price->category->title;
                 }),
-
+            TD::make('price', 'Ціна'),
             TD::make('description', 'Опис'),
         ];
     }

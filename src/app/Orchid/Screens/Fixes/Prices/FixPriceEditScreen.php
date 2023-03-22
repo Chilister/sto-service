@@ -81,7 +81,7 @@ class FixPriceEditScreen extends Screen
                 Select::make('price.category_id')
                     ->title('Категорія')
                     ->empty('Виберіть значення')
-                    ->fromQuery(Category::whereNull('parent_id'), 'title'),
+                    ->fromQuery(Category::whereNotNull('parent_id'), 'title'),
 
                 Input::make('price.title')
                     ->title('Назва')
