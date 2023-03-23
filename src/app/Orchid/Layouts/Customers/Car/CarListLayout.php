@@ -50,15 +50,15 @@ class CarListLayout extends Table
 
             TD::make('fuel_type', 'Паливо')
                 ->render(function (Car $car) {
-                    return $car->fuelType->title;
+                    return $car->fuelType?->title;
                 }),
             TD::make('drive_type', 'Привід')
                 ->render(function (Car $car) {
-                    return $car->driveType->title;
+                    return $car->driveType?->title;
                 }),
             TD::make('gearbox_type', 'Коробка передач')
                 ->render(function (Car $car) {
-                    return $car->gearboxType->title;
+                    return $car->gearboxType?->title;
                 }),
         ];
     }

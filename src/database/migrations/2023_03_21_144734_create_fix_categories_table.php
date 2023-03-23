@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('title');
             $table->string('description')->nullable();
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
     }

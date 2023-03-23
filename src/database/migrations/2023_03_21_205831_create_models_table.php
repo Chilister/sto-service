@@ -17,10 +17,11 @@ return new class extends Migration
         Schema::create('models', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Brand::class, 'brand_id');
-            $table->string('slug')->unique();
+            $table->string('slug');
             $table->string('title');
             $table->unsignedInteger('priority');
             $table->timestamps();
+            $table->unique(['brand_id', 'slug']);
         });
     }
 

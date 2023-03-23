@@ -24,9 +24,9 @@ return new class extends Migration
             $table->foreignIdFor(Customer::class, 'customer_id');
             $table->foreignIdFor(Brand::class, 'brand_id');
             $table->foreignIdFor(CarModel::class, 'model_id');
-            $table->foreignIdFor(FuelType::class, 'fuel_type_id');
-            $table->foreignIdFor(DriveType::class, 'drive_type_id');
-            $table->foreignIdFor(GearboxType::class, 'gearbox_type_id');
+            $table->foreignIdFor(FuelType::class, 'fuel_type_id')->nullable();
+            $table->foreignIdFor(DriveType::class, 'drive_type_id')->nullable();
+            $table->foreignIdFor(GearboxType::class, 'gearbox_type_id')->nullable();
             $table->unsignedInteger('engine_capacity')->nullable();
             $table->unsignedInteger('year')->nullable();
             $table->string('vin_number')->nullable();
