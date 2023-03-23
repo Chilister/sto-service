@@ -6,6 +6,7 @@ use App\Models\Customers\Car;
 use App\Models\Customers\Customer;
 use App\Models\Fixes\Fix;
 use App\Models\Fixes\Price;
+use App\Orchid\Screens\Layout\Listeners\CustomerCarSelectListener;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -82,12 +83,9 @@ class FixEditScreen extends Screen
                     ->fromModel(Customer::class, 'first_name')
                     ->searchColumns('first_name', 'last_name', 'phone_number')
                     ->displayAppend('select_title'),
-
-                Relation::make('fix.car_id')
-                    ->title('Авто')
-                    ->fromModel(Car::class, 'id')
-                    ->displayAppend('select_title'),
-
+            ]),
+            CustomerCarSelectListener::class,
+            Layout::rows([
                 Relation::make('fix.prices.')
                     ->title('Виконані роботи')
                     ->fromModel(Price::class, 'title')
@@ -96,6 +94,13 @@ class FixEditScreen extends Screen
 
 
             ])
+        ];
+    }
+
+    public function asyncCar($car)
+    {
+        return [
+            'customer_id' => $car['customer_id']
         ];
     }
 

@@ -8,6 +8,7 @@ use App\Models\Cars\DriveType;
 use App\Models\Cars\FuelType;
 use App\Models\Cars\GearboxType;
 use App\Models\Fixes\Category;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Screen\AsSource;
@@ -30,6 +31,12 @@ class Car extends Model
         'year',
         'vin_number'
     ];
+
+    public function scopeByCustomer(Builder $query, $customerId)
+    {
+        return $query->where('customer_id', $customerId);
+    }
+
 
     public function getSelectTitleAttribute()
     {

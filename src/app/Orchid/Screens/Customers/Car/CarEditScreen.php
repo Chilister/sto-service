@@ -9,6 +9,7 @@ use App\Models\Cars\FuelType;
 use App\Models\Cars\GearboxType;
 use App\Models\Customers\Car;
 use App\Models\Customers\Customer;
+use App\Orchid\Screens\Layout\Listeners\BrandSelectListener;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
@@ -85,17 +86,15 @@ class CarEditScreen extends Screen
                     ->fromModel(Customer::class, 'first_name')
                     ->searchColumns('first_name', 'last_name', 'phone_number')
                     ->displayAppend('select_title'),
-
+            ]),
+            Layout::rows([
                 Relation::make('car.brand_id')
                     ->title('Бренд')
                     ->searchColumns('title')
-                    ->fromModel(Brand::class, 'title'),
-
-                Relation::make('car.model_id')
-                    ->title('Модель')
-                    ->searchColumns('title')
-                    ->fromModel(CarModel::class, 'title'),
-
+                    ->fromModel(Brand::class, 'title')
+            ]),
+            BrandSelectListener::class,
+            Layout::rows([
                 Select::make('car.fuel_type_id')
                     ->title('Тип палива')
                     ->searchColumns('title')
@@ -122,7 +121,15 @@ class CarEditScreen extends Screen
                     ->title('VIN номер')
                     ->placeholder('VIN номер'),
 
-            ])
+            ]),
+
+        ];
+    }
+
+    public function asyncBrand($car)
+    {
+        return [
+            'brand_id' => $car['brand_id']
         ];
     }
 

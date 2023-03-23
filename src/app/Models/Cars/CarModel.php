@@ -2,7 +2,7 @@
 
 namespace App\Models\Cars;
 
-use App\Models\Fixes\Category;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Screen\AsSource;
@@ -20,6 +20,11 @@ class CarModel extends Model
         'title',
         'priority'
     ];
+
+    public function scopeByBrand(Builder $query, $brand)
+    {
+        return $query->where('brand_id', $brand);
+    }
 
     public function brand()
     {

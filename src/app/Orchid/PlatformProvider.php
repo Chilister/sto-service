@@ -42,15 +42,15 @@ class PlatformProvider extends OrchidServiceProvider
                         ->icon('wrench')
                         ->route('platform.fix.list'),
                 ]),
-            Menu::make('Замовлення')
-                ->icon('task')
+            Menu::make('Графік')
+                ->icon('note')
                 ->list([
-                    Menu::make('Записи')
-                        ->icon('user')
-                        ->route('platform.appointment.list'),
                     Menu::make('Календар')
-                        ->icon('user')
+                        ->icon('calendar')
                         ->route('platform.calendar.preview'),
+                    Menu::make('Записи')
+                        ->icon('clock')
+                        ->route('platform.appointment.list'),
                 ]),
 
             Menu::make('Ціни')
