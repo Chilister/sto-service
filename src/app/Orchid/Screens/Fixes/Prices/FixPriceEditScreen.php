@@ -10,8 +10,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Orchid\Screen\Action;
 use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Fields\Group;
 use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Fields\Select;
+use Orchid\Screen\Fields\Switcher;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
@@ -78,10 +81,17 @@ class FixPriceEditScreen extends Screen
     {
         return [
             Layout::rows([
-                Select::make('price.category_id')
-                    ->title('Категорія')
-                    ->empty('Виберіть значення')
-                    ->fromQuery(Category::whereNotNull('parent_id'), 'title'),
+                Group::make([
+                    Relation::make('price.category_id')
+                        ->title('Категорія')
+                        ->placeholder('Виберіть категорію')
+                        ->empty('Виберіть значення')
+                        ->fromModel(Category::class, 'title'),
+
+                    Switcher::make('price.is_published')
+                        ->title('Опублікувати')
+                        ->sendTrueOrFalse(),
+                ]),
 
                 Input::make('price.title')
                     ->title('Назва')
@@ -97,7 +107,6 @@ class FixPriceEditScreen extends Screen
                     ->rows(3)
                     ->maxlength(200)
                     ->placeholder('Опис'),
-
 
 
             ])

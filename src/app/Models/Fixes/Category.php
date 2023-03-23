@@ -17,7 +17,12 @@ class Category extends Model
         'parent_id',
         'slug',
         'title',
+        'is_published',
         'description'
+    ];
+
+    protected $casts = [
+        'is_published' => 'boolean'
     ];
 
     public function parent()

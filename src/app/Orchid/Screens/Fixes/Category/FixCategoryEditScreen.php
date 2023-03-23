@@ -7,8 +7,11 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Fields\CheckBox;
+use Orchid\Screen\Fields\Group;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Select;
+use Orchid\Screen\Fields\Switcher;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
@@ -75,10 +78,14 @@ class FixCategoryEditScreen extends Screen
     {
         return [
             Layout::rows([
-                Input::make('category.title')
-                    ->title('Назва')
-                    ->placeholder('Назва категорії'),
-
+                Group::make([
+                    Input::make('category.title')
+                        ->title('Назва')
+                        ->placeholder('Назва категорії'),
+                    Switcher::make('category.is_published')
+                        ->title('Опублікувати')
+                        ->sendTrueOrFalse(),
+                ]),
                 TextArea::make('category.description')
                     ->title('Опис')
                     ->rows(3)
@@ -88,7 +95,6 @@ class FixCategoryEditScreen extends Screen
                 Select::make('category.parent_id')
                     ->title('Батьківська категорія')
                     ->empty('Виберіть значення')
-
                     ->fromQuery(Category::whereNull('parent_id'), 'title'),
 
             ])

@@ -18,7 +18,12 @@ class Price extends Model
         'slug',
         'title',
         'description',
-        'price'
+        'price',
+        'is_published'
+    ];
+
+    protected $casts = [
+        'is_published' => 'boolean'
     ];
 
     public function category()

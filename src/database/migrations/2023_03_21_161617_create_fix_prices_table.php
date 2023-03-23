@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('description')->nullable();
             $table->integer('price')->default(0);
-            $table->timestamp('published_at')->nullable();
+            $table->boolean('is_published')->default(1);
             $table->timestamps();
         });
     }
