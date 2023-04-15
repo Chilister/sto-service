@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+// For compatibility and sharing of styles with another themes of ours
+@import "../shared/import";
+@import "./variables";
+
+// Bootstrap core styles
+@import "./bootstrap";
+
+@import "../shared/styles/utilities/text";
+@import "../shared/styles/utilities/dividers";
+
+// Import theme styles
+@import "mixins";
+@import "base";
+@import "doc";

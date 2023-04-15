@@ -1,0 +1,134 @@
+.section {
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    .section-title {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-weight: $font-weight-normal;
+        padding-bottom: 10px;
+        border-bottom: 1px solid $divider;
+        color: $color-darker
+    }
+}
+
+.section-block {
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    .list {
+        & > li {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            & > li {
+                margin-top:5px;
+            }
+        }
+    }
+}
+
+.code-block {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.callout {
+    padding: 30px;
+    @include border-radius(4px);
+    position: relative;
+    margin-bottom: 30px;
+    color: $white;
+
+    a {
+        color: rgba($black, 0.55) !important;
+        &:hover {
+            color: rgba($black, 0.65) !important;
+        }
+    }
+
+    .icon-holder {
+        font-size: 30px;
+        position: absolute;
+        left: 30px;
+        top: 30px;
+        color: rgba($black, 0.25);
+    }
+
+    .content {
+        margin-left: 60px;
+
+        p {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &-title {
+        margin-top: 0;
+        margin-bottom: 5px;
+        color: rgba(0, 0, 0, 0.65);
+    }
+
+    &-info { background: $color-blue; }
+    &-success { background: $color-green; }
+    &-warning { background: $color-orange; }
+    &-danger { background: $color-red; }
+}
+
+/* Sidebar */
+.sticky {
+    position: sticky;
+    top: 50px;
+
+    &:before,
+    &:after {
+        content: '';
+        display: table;
+    }
+}
+
+.nav-menu {
+    list-style: none;
+
+   .nav-link {
+        margin-bottom: 5px;
+        display: block;
+        padding: 5px 15px;
+        color: $text-color-secondary;
+
+        &:hover, &:focus {
+            color: $color-primary;
+            text-decoration: none;
+            background: none;
+
+        }
+
+        &.active {
+            background: rgba($color-primary, .075);
+            color: $color-primary;
+            box-shadow: inset 2px 0 0 0;
+        }
+    }
+}
+
+.nav-sub-menu {
+    list-style: none;
+    padding-left: 0;
+
+    .nav-link {
+        margin-bottom: 10px;
+        font-size: $font-size-small;
+        display: block;
+        color: $text-color-secondary;
+        padding: 0;
+        padding-left: 34px;
+        background: none;
+
+        &:first-child {
+            padding-top: 5px;
+        }
+    }
+}

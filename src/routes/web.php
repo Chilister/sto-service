@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/home', [\App\Http\Controllers\MainController::class, 'index']);
+Route::group(['as' => 'docs.'], function () {
+    includeRouteFiles(__DIR__.'/docs/');
+});
+
+/*
+ * Frontend Routes
+ */
+Route::group(['as' => 'frontend.'], function () {
+    includeRouteFiles(__DIR__.'/frontend/');
+});
