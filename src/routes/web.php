@@ -21,6 +21,13 @@ Route::get('/pricing/categories', [\App\Http\Controllers\PricingController::clas
 ->name('pricing.categories');
 Route::get('/pricing/categories/{category:slug}', [\App\Http\Controllers\PricingController::class, 'category'])
 ->name('pricing.category');
+
+Route::get('/contact-us', [\App\Http\Controllers\ContactUsController::class, 'index'])
+->name('contact_us');
+Route::post('/contact-us', [\App\Http\Controllers\ContactUsController::class, 'saveContactUsRequest'])
+->name('contact_us_request');
+
+
 Route::group(['as' => 'docs.'], function () {
     includeRouteFiles(__DIR__.'/docs/');
 });
