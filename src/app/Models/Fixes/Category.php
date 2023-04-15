@@ -34,4 +34,9 @@ class Category extends Model
     {
         return $this->hasMany(self::class, 'parent_id');
     }
+
+    public function prices()
+    {
+        return $this->hasMany(Price::class, 'category_id');
+    }
 }
